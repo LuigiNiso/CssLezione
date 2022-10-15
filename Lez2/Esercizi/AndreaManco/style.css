@@ -1,0 +1,48 @@
+/**css reset**/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(53, 52, 52);
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(30, 12, 110);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav *{
+    margin: 20px;
+}
+
+#logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#title{
+    color: rgb(201, 175, 228);
+}
+
+#login{
+    /* padding: 10px 20px; */
+    width: 100px;
+    height: 30px;
+    transition: background-color 0.5s ease-in-out;
+    background-color: rgb(221, 29, 221);
+    border: 0;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+#login:hover{
+    background-color: rgb(133, 18, 133);
+}
