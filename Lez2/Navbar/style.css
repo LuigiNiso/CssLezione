@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  height: 600px;
+  background-color: brown;
+  width: 600px;
+}
+
+.ciao {
+  width: 50%;
+  height: 100px;
+  background-color: blue;
+}
