@@ -1,49 +1,48 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color:#122b50;
+body {
+  background-color: #122b50;
 }
 
-.nav{
-    background-color: #497293;
-    width: 100%;
-    height: 140px;
-    align-items: center;
-    justify-content:space-between;
-    display: flex;
+.nav {
+  background-color: #497293;
+  width: 100%;
+  height: 140px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
 }
 
-.logo{
-    border-radius:50%;
-    height: 100px;
-    width: 100px;
-    margin: 15px;
-    cursor: pointer;
-    border: 3px solid white;
+.logo {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 15px;
+  cursor: pointer;
 }
 
-.login{
-    color: #122b50;
-    margin: 15px;
-    height: 40px;
-    width: 80px;
-    font-size: 19px;
-    background-color: #8fcbfc;
-    border-radius: 10px;
-    border: 2px solid #122b50;
-    font-family: 'Fira Sans Condensed', sans-serif;
+.login {
+  color: #122b50;
+  margin: 15px;
+  height: 40px;
+  width: 80px;
+  font-size: 19px;
+  background-color: #8fcbfc;
+  border-radius: 10px;
+  border: 2px solid #122b50;
+  font-family: "Fira Sans Condensed", sans-serif;
 }
 
-.title{
-    font-family: 'Fira Sans Condensed', sans-serif;
-    color: white;
-    font-size: 60px;
+.title {
+  font-family: "Fira Sans Condensed", sans-serif;
+  color: white;
+  font-size: 60px;
 }
 
-.login:hover{
-    cursor: pointer;
+.login:hover {
+  cursor: pointer;
 }
