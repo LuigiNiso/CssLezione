@@ -1,0 +1,44 @@
+/** css reset**/
+*{
+    margin: 0px;       
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    
+}
+#logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: lightgreen;
+
+}
+#titolo{
+    width: 300px;
+    height: 50px;
+}
+#bottone{
+    width: 65px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0,3 ease-in-out;
+}
+#bottone:hover{
+    
+    background-color: darkgreen;
+    
+}
+.nav-bar{
+    width: 100%;
+    height: 100px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
