@@ -13,8 +13,19 @@
   transition: all 0.3s ease-in-out;
 }
 
+.element:first-child {
+  background-color: blue;
+}
+
+.element:last-child {
+  background-color: purple;
+}
+
+.element:nth-child(4) {
+  background-color: darksalmon;
+}
+
 .element:hover {
-  height: 200px;
   width: 200px;
   background-color: red;
 }
