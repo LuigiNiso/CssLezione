@@ -11,6 +11,9 @@ div {
 }
 
 .ciao {
+  /* LA LARGHEZZA OCCUPA IL 50% DELLA GRANDE DEL CONTENITORE */
+  /* LE PERCENTUALI SONO RELATIVE AI CONTENITORI */
+  /* ES. SE IL CONTENITORE DI CIAO (div) È GRANDE 600PX .ciao SARÀ GRANDE 300PX */
   width: 50%;
   height: 100px;
   background-color: blue;
