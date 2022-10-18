@@ -1,0 +1,172 @@
+Protocollo ARP
+
+1) sfrutta la trasmissione broadcast
+2) viene inviato in broadcast un pacchetto (arp request) contente l'indirizzo IP di cui si cerca il corrispondente MAC
+3) tutte le stazioni leggono il pacchetto, quella interessata risponde (ARP reply)
+4) Tabella ARP (cache): <Protocl address, Hardware address, Timestamp)
+
+Indirizzi IP e indirizzi MAC
+
+IP: è un indirizzo logico e serve ad identificare il destinatario finale del pacchetto 
+nell'ambito dell'intera internetwork IP
+
+MAC: serve a discriminare il destinatario finale di un pacchetto nell'ambito di una LAN/BLAN
+
+Tecniche di associazione indirizzo logico-fisico:
+
+-Statica: creazione di una tabella in cui si trascrivono gli indirizzi logici ed i corrispondenti indirizzi fisici
+-Dinamica: protocolli che consentono di determinare uno dei due indirizzo noto l'altro 
+
+ARP:Address Resolution Protocol, verifica nell'arp table se l'ip sia stato già risolto
+RARP:Reverse Address Resolution Protocol
+
+ARP Table: tabella in cui c'è la corrispondenza tra IP e MAC address, se trova si incapsula sennò protocollo ARP
+
+ROUTING
+
+Instradare: determinare il path/percorso che i pacchetti devono percorrere
+I dispositivi che si occupano di routing sono: router, ma anche tutti gli apparati di LIV 3.
+
+IL ROUTING PUO' ESSERE:
+può essere diretto e indiretto: 
+-diretto: comunicazione tra sistemi con la stessa rete IP A<-->B coinvolge 1 solo router
+-indiretto: comunicazione tra sistemi con reti IP diverse A<-->D coinvolge almeno 2 router, i pacchetti vengono inviati al GW del router
+
+ROUTE STATICHE E DINAMICHE
+i router devono conoscere i possibili percorsi verso le reti remote mediante
+
+-Statiche: non scalabili, configurazione eseguita manualmente dall'amministratore e in caso di cambi di topologia di rete l'amministratore
+deve apportare le opportune variazioni alla configurazione della route statiche.
+-Dinamiche: informazioni ricevute dagli agli router, calcolate dall'algoritmo e cambia automaticamente.
+
+Route Table: TYPE(connected,static,dynamic)|NETWORK|PORT|INDIRIZZO INTERFACCIA|METRICA (distanza amministrativa e numero di hop)
+Default route: è la route che viene scelta quando nessun'altra matcha
+
+-LONGEST PREFIX MATCH: vede quale route matcha meglio con il destinatario end mask
+
+GLI ALGORITMI DI ROUTING POSSONO ESSERE:
+
+-Distribuiti: la responsibilità del calcolo delle tabelle è "distribuita" tra i router della rete
+-Centralizzato: si individua un router principale al quale  viene delegata la funzione di costruire le tabelle sulla base delle informazioni
+ricevute dagli altri router
+
+DISTANCE VECTOR
+
+ogni router mantiene oltre alla tabella di instradamento anche un'altra tipologia di struttura dati per ogni link (linea), detta appunto distance
+Vector
+
+Ogni distance vector associato a ciascuna linea, contiene informazioni relative alla routing table del router adiacente collegato all'altro capo
+della linea/link del tipo:
+
+-Vantaggi distance vector: dinamicità e adattabilità a variazioni di rete e semplicità di di implementazione
+-Svantaggi: complessità operazionale
+
+ESEMPIO DI DV: PROTOCOLLO RIP (routing information protocol, di tipo distribuito)
+
+-distance vector
+-utilizza il numero di hops come metrica per il percorso migliore
+-Una route con distanza pari a 16 è considerata irragiungibile 
+-Gli aggiornamenti di routing vengono inviati broadcast ogni secondi
+-Distanza Amministrativa: 120
+-RIP ha due versioni: 1 e 2,a la 2 supporta il classless routing include le informazioni della subnet nei routing updates
+-permette di calcolare le route dinamiche
+
+i router si scambiano periodicamente (ogni 30 sec) pacchetti di controlo attraverso cui si comunicano/informano i router adiacenti (flooding, si
+allaga la rete)
+
+Struttura DV: Destinatario|costo|n hop|link interfaccia
+
+METRICA: livello di qualità di una linea, può essere rappresentata con il numero di hop ma anche costo,larghezza di banda, velocità di trasmissione
+
+DISTANZA AMMINISTRATIVA: è possibile avere più di un protocollo di routing abilitato su un singolo router. Quando un router ha 2 percorsi diverso
+verso una stessa direzione utilizza la distanza amministrativa la quale rappresenta l'affidabilità del percorso.
+Più è basso più è affidabile
+
+CONFIGURAZIONE PROTOCOLLO RIP
+
+-router rip abilita il rip come protocollo di routing
+-versione 2 per impostare la versione 2
+-network per dire su quali interfacce rip va usato
+-le net specificate riceveranno messaggi rip ogni 30 sec
+-show ip mostra la tabella di routing
+
+#ip route prefix-->(rete da raggiungere) mask IP address-->(next hop, per cosa deve passare)
+
+#no ip ROUTING per cancellare
+
+NAT (Network address Translator)
+
+Si occupa della traduzione degli indirizzi di rete, il nat è un meccanismo che permette di modificare l'indirizzo IP dei pacchetti in transito, 
+usufruendo di apparati di rete come router o firewall (o apparati di LIV 3), tipicamente da una LAN a una WAN; l'indirizzo IP privato viene tradotto
+in IP pubblico in modotale da essere visibile all'esterno.
+
+Il NAT quindi, trasforma un indirizzo IP privato in uno pubblico anche per tenere l'identificazione privata distaccata da quella pubblica.
+
+Il NAT è stato creato perchè gli indirizzi IPV4 iniziavano a scarseggiare ma anche per un maggiore livello di sicurezza essendo che gli IP privati
+non vengono visti all'esterno.
+
+TIPI DI NAT: Static,Dynamic,Overloading
+
+Statico: ad un ip privato corrisponde uno pubblico
+Dinamico: corrispondenza molti a molti
+Overloading: (many to one) NAPT = network address port translator
+
+Tabella di traduzione mantiene la corrispondenza tra indirizzi interni privati ed esterni al fine di determinare quale host interno debba ricevere
+un datagram che arriva da internet.
+-Nat multi-indirizzo: il dispositivo NAT disponse di K indirizzi validi globalmente,G1,G2...GK
+-consente fino a k host di accedere contemporaneamente ad una data destinazione
+
+NAPT (network adddress port translator)
+
+oltre alle coppie di indirizzi IP privato ed esterno, la tabella contiene le coppie di numeri di porta privata ed esterna ed un numero di porta 
+(PORTA NAT) univoco assegnato dal dispositivo NAT ad ogni comunicazione
+
+Il dispositivo NAT traduce un datagram da inviare in internet sostituendo l'indirizzo IP mittente con g e la porta mittente con la porta NAT
+assegnata.
+
+TERMINOLOGIA NAT
+
+-Inside local address: IP con il quale un host nella rete si presenta al router prima di essere tradotto
+-Inside global address: IP con il quale un host nella rete è visto da internet dopo essere tradotto
+-Outside local address: IP con il quale un host remoto si presenta sul router prima di essere tradotto
+-Outiside global address: IP con il quale un host remoto si presenta all'interno dopo essere stato tradotto
+
+NAT STATICO: ip nat inside source static 192.168.0.3 (in cosa va tradotto--->) 1.0.0.4
+
+COMANDI VARI
+
+no ip domain-lookup  diciamo per tutti gli apparati network devices di ovviare al temporaneo blocco della CLI quando sbagliavamo comando
+DNS: nome di un dominio
+
+PORT FORDWARDING
+
+E’ un procedimento molto usato per fare in modo che un server collegato a una rete privata locale sia in grado di 
+rispondere alle richieste che arrivano da internet per una o più porte configurate, senza che il server stesso debba essere 
+direttamente connesso alla rete pubblica.
+
+Il port forwarding è un processo nel quale un device di rete (router o firewall) connesso a due o più reti 
+diverse riceve richieste di connessione da una delle due reti e le trasferisce verso un server o computer 
+connesso all’altra rete (tipicamente privata) adibito a rispondere su una particolare porta.
+
+porta 80: porta di rete
+
+COMANDI VARI
+
+Statico (one-to-one)ipnatinside source static192.168.0.3 1.0.0.4
+
+•Dinamico (Manyto Many)WANRouter(config)# ip nat pool WANPOOL 100.100.100.10 100.100.100.15 netmask 255.255.255.0
+WANRouter(config)# ipaccess-list 10 permit 192.168.1.0 0.0.0.255WANRouter(config)# ipnatinside source list 10 pool WANPOOL
+
+•Overloading (Many to One)ipnatinside source list 1 interfaceGigabitEthernet0/1 overload
+
+Access list e overload;rangedi IP private da tradurre (permittila traduzione del range:[192.168.0.0-192.168.0.255]
+access-list 1 permit 192.168.0.0 0.0.0.255--> intervallo di valori che
+devono essere tradotti(wilcard=espressione di 0 e di 1 in binario, con il seguente significato: 
+la parte 0 indica che, nell’espressione del range, il valore della parte IP non cambia, 1 significa che cambia)
+
+ip nat inside source list 10 pool wanpool range di indirizzi che possono essere tradotti
+
+ip nat inside source list 1 interface GigabitEthernet0/1 overload (tradurrà tutti gli indirizzi ip interni che raggiungeranno l'esterno tramite
+								   l'interfaccia 0/1 e tutti gli host della rete interna si presenteranno 
+								   all'esterno  con un solo indirizzo ip)
+								  
