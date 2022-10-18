@@ -1,0 +1,25 @@
+@import url(/CssReset/css-reset.css);
+
+.flex-container {
+  width: 600px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-element {
+  width: 100px;
+  height: 100px;
+  background-color: yellowgreen;
+  margin: 10px;
+}
+
+input {
+  background-color: red;
+}
+
+input[type=""] {
+  background-color: blue;
+}

@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+  position: absolute;
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+form div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.name-surname-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  border: solid 1px rgb(189, 189, 189);
+  text-indent: 10px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+}
+
+.name-surname-field input[type="text"] {
+  width: 90%;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+.surname-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+}
+
+.email-field,
+.name-field,
+.password-field,
+.repeat-password-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid rgb(90, 179, 120);
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  background-color: rgb(54, 177, 95);
+}
