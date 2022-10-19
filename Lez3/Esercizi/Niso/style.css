@@ -26,8 +26,12 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: relative;
   border-radius: 10px;
+  position: relative;
+}
+
+.login-form label {
+  margin-bottom: 3px;
 }
 
 .login-form div input {
@@ -54,6 +58,7 @@ h1 {
   flex-direction: column;
   width: 80%;
   height: 60px;
+  margin: 10px;
 }
 
 .login-form input[type="submit"] {
