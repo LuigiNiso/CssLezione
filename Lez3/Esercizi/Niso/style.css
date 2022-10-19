@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #222;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  position: absolute;
+  top: 15%;
+}
+
+.login-form {
+  width: 500px;
+  height: 400px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+}
+
+.login-form div input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+  text-indent: 10px;
+}
+
+.login-form div input:focus {
+  outline: none;
+}
+
+.login-form div label {
+  width: 100%;
+}
+
+.email-field,
+.password-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  height: 60px;
+}
+
+.login-form input[type="submit"] {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  transition: width 0.3s ease-in-out;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 15%;
+}
+
+.login-form input[type="submit"]:hover {
+  width: 200px;
+}
