@@ -1,0 +1,264 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.back{
+    width: 27px;
+    height: 27px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    filter: invert();
+    cursor: pointer;
+}
+
+.more{
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.more:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+.model-photo{
+    width: 90%;
+    height: 375px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+/*-----------------------------------*/
+
+.title-price{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.title-price p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+}
+
+.reduced{
+    color: #5456a3;
+    font-weight: bold;
+}
+
+.full{
+    font-size: 13px;
+    color: rgb(117, 117, 117);
+}
+
+/*----------------------------------*/
+
+.size{
+    width: 90%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.size button{
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40); 
+    box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40);
+    transition: background-color 0.4s cubic-bezier(.46,.03,.52,.96);
+    font-family: 'Poppins', sans-serif;
+}
+
+.size button:hover{
+    background-color: #7c7ec5;
+    color: white;
+    -webkit-box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40); 
+    box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40);
+    border: none;
+}
+
+.size p{
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/*----------------------------------------------*/
+
+.info{
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.tab{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.active{
+    color:#5456a3;
+    position: relative;
+}
+
+.active::after{
+    content:"";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color:#5456a3;
+    bottom: 0;
+    left: 0;
+}
+
+.content{
+    color: rgb(117, 117, 117);
+    margin-top: 15px;  
+}
+
+/*------------------------------------------------------*/
+
+.quantity-and-tot{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.add-del{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-del button{
+    width: 33px;
+    height: 33px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.del{
+    background-color: #cfcfcf;
+    font-weight:bold;
+    color: #616161;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.add{
+    background-color:#5456a3;
+    color: white;
+    font-weight:bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.quantity-and-tot p{
+    font-weight: bold;
+}
+
+/*-----------------------------------------------*/
+
+.save{
+    width: 90%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.save .favorites{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    -webkit-box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40); 
+    box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.40);
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.favorites img{
+    width: 35px;
+    filter: opacity(0.5);
+}
+
+.save button{
+    width: 250px;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    background-color: #5456a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.save button img{
+    width: 30px;
+    filter: invert();
+    margin: 10px;
+}
+
+hr{
+    width: 90%;
+}
