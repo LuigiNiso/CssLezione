@@ -5,7 +5,6 @@
 }
 
 body {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -38,6 +37,7 @@ nav {
   border-radius: 50%;
   cursor: pointer;
   padding: 3px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .more:hover {
@@ -46,7 +46,7 @@ nav {
 
 .model-photo {
   width: 90%;
-  height: 375px;
+  height: 500px;
   border-radius: 10px;
   object-fit: cover;
   object-position: 0 0;
@@ -102,16 +102,12 @@ nav {
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: color 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   font-family: "Poppins", sans-serif;
 }
 
 .size button:hover {
-  background-color: #7c7ec5;
-  color: white;
-  -webkit-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
-  border: none;
+  filter: brightness(0.8);
 }
 
 .size p {
@@ -137,6 +133,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .active {
@@ -146,12 +143,21 @@ nav {
 
 .active::after {
   content: "";
-  width: 100%;
+  width: 0%;
   height: 2px;
   position: absolute;
   background-color: #5456a3;
   bottom: 0;
   left: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.active:hover::after {
+  width: 100%;
+}
+
+.tab p:not(.active):hover {
+  filter: opacity(0.5);
 }
 
 .content {
@@ -185,6 +191,10 @@ nav {
   font-family: "Poppins", sans-serif;
 }
 
+.add-del button:hover {
+  filter: brightness(0.9);
+}
+
 .del {
   background-color: #cfcfcf;
   font-weight: bold;
@@ -215,6 +225,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .save .favorites {
@@ -223,12 +234,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
   margin-right: 15px;
   -webkit-box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 16px -1px rgba(0, 0, 0, 0.4);
   border: 1px solid #ddd;
   border-radius: 15px;
   cursor: pointer;
+  transition: filter 0.3s ease-in-out;
 }
 
 .favorites img {
@@ -251,6 +264,12 @@ nav {
   cursor: pointer;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  position: relative;
+  transition: filter 0.3s ease-in-out;
+}
+
+.save button:hover {
+  filter: brightness(0.9);
 }
 
 .save button img {
@@ -259,7 +278,10 @@ nav {
   margin: 10px;
 }
 
+.save .favorites:hover {
+  filter: brightness(0.9);
+}
+
 hr {
   width: 90%;
-  margin-bottom: 20px;
 }
